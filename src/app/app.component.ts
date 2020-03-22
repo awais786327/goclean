@@ -1,5 +1,5 @@
-import {Component} from '@angular/core';
-import {Router} from '@angular/router';
+import {Component, AfterViewInit} from '@angular/core';
+import {Router, RouteConfigLoadEnd, RouteConfigLoadStart} from '@angular/router';
 import {UserService} from './services/user.service';
 
 /*
@@ -13,7 +13,7 @@ import {AngularFireAuth} from 'angularfire2/auth';
   styleUrls: ['./app.component.scss']
 })
 
-export class AppComponent {
+export class AppComponent implements AfterViewInit {
   user: any;
 
   constructor(private angularFireAuth: AngularFireAuth, private router: Router, private userService: UserService) {
@@ -21,6 +21,26 @@ export class AppComponent {
     this.userService.userStatus.subscribe(user => {
       this.user = user;
     });
+
+    let asyncLoadCount = 0;
+    router.events.subscribe(event => {
+        if (event instanceof RouteConfigLoadStart) {
+          asyncLoadCount++;
+        } else if (event instanceof RouteConfigLoadEnd) {
+          asyncLoadCount--;
+        }
+        !!asyncLoadCount ? this.isLoading(true) : this.isLoading(false);
+      }
+    );
+  }
+
+  ngAfterViewInit() {
+    // stop loading for first time as it is shown by default
+    this.isLoading(false);
+  }
+
+  isLoading(bool?) {
+    document.getElementById('app-loader').style.display = bool ? 'block' : 'none';
   }
 
   logout() {

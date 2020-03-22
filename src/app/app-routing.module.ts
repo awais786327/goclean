@@ -9,6 +9,7 @@ const routes: Routes = [
   { path: '', component: LandingComponent },
   { path: 'maps/home', component: HomeComponent, canActivate: [AuthGuard] },
   { path: 'auth/login', component: AuthenticationComponent },
+  { path: '**', redirectTo: '' }
 ];
 
 @NgModule({

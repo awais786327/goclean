@@ -25,6 +25,12 @@ import {UserService} from './services/user.service';
 import {AuthService} from './services/auth.service';
 import {AuthGuardService} from './services/auth-guard.service';
 
+import { NgxLoadingModule, ngxLoadingAnimationTypes } from 'ngx-loading';
+const animationType = [
+  'chasingDots', 'circle', 'circleSwish', 'cubeGrid', 'doubleBounce',
+  'pulse', 'rectangleBounce', 'rotatingPlane', 'threeBounce', 'wanderingCubes'
+];
+
 const authProviders = [
   {enabled: true, name: 'Google', provider: firebase.auth.GoogleAuthProvider.PROVIDER_ID},
   {
@@ -71,6 +77,11 @@ const firebaseUiAuthConfig: firebaseui.auth.Config = {
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    NgxLoadingModule.forRoot({
+      fullScreenBackdrop: true,
+      animationType: ngxLoadingAnimationTypes[animationType[2]],
+      backdropBackgroundColour: '#000000ba'
+    }),
     ToastrModule.forRoot({
       progressBar: true,
       iconClasses: {
