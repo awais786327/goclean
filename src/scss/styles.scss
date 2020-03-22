@@ -1,0 +1,53 @@
+/* add global styles to this file, and also import other style files */
+@import "../../node_modules/colors.css/css/colors.min.css";
+@import "fab";
+@import "ripple";
+
+::-webkit-scrollbar {
+  width: 8px; /* for vertical scrollbars */
+  height: 8px; /* for horizontal scrollbars */
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+}
+
+* {
+  border-radius: 0 !important;
+}
+
+html {
+  margin-top: 60px;
+}
+
+.cursor {
+  cursor: pointer !important;
+}
+
+.toast-progress {
+  background: white;
+}
+
+.outline-0 {
+  outline: none !important;
+  border: 0 !important;
+}
+
+.focus-0 {
+  &:focus {
+    outline: none !important;
+  }
+}
+
+.disabled {
+  color: gray;
+  opacity: .65;
+  cursor: not-allowed;
+  pointer-events: none;
+  &:hover, &:focus, &:active { text-decoration: none; }
+}
