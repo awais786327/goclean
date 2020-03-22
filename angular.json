@@ -6,17 +6,8 @@
     "goclean": {
       "projectType": "application",
       "schematics": {
-        "@schematics/angular": {
-          "component": {
-            "style": "scss",
-            "spec": false
-          },
-          "module": {
-            "spec": false
-          },
-          "service": {
-            "spec": false
-          }
+        "@schematics/angular:component": {
+          "style": "scss"
         }
       },
       "root": "",
