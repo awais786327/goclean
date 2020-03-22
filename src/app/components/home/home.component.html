@@ -1,1 +1,63 @@
-<p>home works!</p>
+<div class="home-page-wrapper">
+  <div class="row" id="map"></div>
+  <div [hidden]="!isDrawing.status" (click)="addDescription()">
+    <div class="adminActions animated bounceIn" data-toggle="popover" data-trigger="hover">
+      <a [ngClass]="{'bg-red': isDrawing.type == 'road', 'bg-blue': isDrawing.type == 'water'}"
+         [class.disabled]="!isDrawing.started" href="javascript:" class="adminButton hvr-buzz-out">
+        <i [ngClass]="{'fa-question': !isDrawing.started, 'fa-thumbs-up': isDrawing.started}" class="fa white medium-size"></i>
+      </a>
+    </div>
+  </div>
+  <div [hidden]="isDrawing.status">
+    <div class="adminActions animated bounceIn">
+      <input type="checkbox" #fab name="adminToggle" class="adminToggle"/>
+      <a class="adminButton bg-success" href="javascript:">
+        <i class="fa fa-map-signs"></i>
+      </a>
+      <div class="adminButtons" (click)="closeFABMenu(fab)">
+        <a (click)="draw('water')" class="hvr-glow bg-blue" href="javascript:" data-toggle="tooltip" title="Mark Water">
+          <i class="fa fa-tint fa-lg"></i>
+        </a>
+        <a (click)="draw('road')" class="hvr-glow bg-red" href="javascript:" data-toggle="tooltip" title="Mark Road">
+          <i class="fa fa-road"></i>
+        </a>
+        <a (click)="reCenter()" class="hvr-glow grey" href="javascript:" data-toggle="tooltip" title="Re-center">
+          <i class="fa fa-location-arrow medium-size"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal animated zoomIn faster focus" id="delete_modal" role="dialog" aria-hidden="true">
+  <div class="modal-dialog w-25 modal-dialog-centered focus">
+    <div class="modal-content">
+      <div class="modal-body">
+        Do you confirm the deletion of this line ?
+      </div>
+      <div class="modal-footer modal-footer border-0 pt-0">
+        <button (click)="deleteLine('cancel')" type="button" class="btn btn-sm btn-secondary close-btn" data-dismiss="modal">Close</button>
+        <button (click)="deleteLine('confirm')" type="button" class="btn btn-sm btn-danger confirm-btn" data-dismiss="modal">Confirm</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal animated zoomIn faster focus" id="add_modal" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered focus">
+    <div class="modal-content">
+      <form>
+        <div class="modal-body pb-1">
+          <div class="form-group mb-2">
+            <label for="textarea">Description</label>
+            <textarea class="form-control" placeholder="Write some details regarding this route."
+                      #description id="textarea" rows="3"></textarea>
+          </div>
+        </div>
+        <div class="modal-footer border-0 pt-0">
+          <button (click)="saveDrawing(description)" type="button" class="btn btn-sm btn-success save-btn" data-dismiss="modal">
+            Save
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
