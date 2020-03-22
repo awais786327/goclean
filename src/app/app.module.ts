@@ -12,14 +12,13 @@ import {environment} from '../environments/environment';
 import {ToastrModule} from 'ngx-toastr';
 import {AngularFirestore} from 'angularfire2/firestore';
 
+import {FirebaseUIModule, firebase, firebaseui} from 'firebaseui-angular';
 /*
 import {AngularFireModule} from '@angular/fire';
 import {AngularFireAuthModule} from '@angular/fire/auth';
 */
 import {AngularFireModule} from 'angularfire2';
 import {AngularFireAuthModule} from 'angularfire2/auth';
-
-import {FirebaseUIModule, firebase, firebaseui} from 'firebaseui-angular';
 
 import {FirebaseService} from './services/firebase.service';
 import {UserService} from './services/user.service';

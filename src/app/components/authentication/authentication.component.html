@@ -1,1 +1,43 @@
-<p>authentication works!</p>
+<section>
+  <div class="authentication-page-wrapper">
+    <div class="row alert alert-warning alert-dismissible bg-red white fade show mb-0 animated fadeInDown" role="alert" *ngIf="!user">
+      Please login to continue.
+      <button type="button" class="btn close pt-2" data-dismiss="alert" aria-label="Close">
+        <i class="fa fa-close animated bounceIn delay-2s" aria-hidden="true"></i>
+      </button>
+    </div>
+    <div class="row alert bg-olive alert-dismissible fade show mb-0 white" role="alert" *ngIf="user">
+      <img class="rounded-circle animated fadeInLeft delay-1s" width="30" [src]="user.photoUrl" alt="{{user.displayName}}">
+      <div class="ml-2 align-middle my-auto animated bounceIn">
+        Hello
+        <span class="font-weight-bold">{{user.displayName}}.</span>
+      </div>
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <i class="fa fa-close animated bounceIn delay-2s" aria-hidden="true"></i>
+      </button>
+    </div>
+    <div class="row">
+      <div class="col-12 mt-3" *ngIf="!user">
+        <div class="card">
+          <div class="card-body">
+            <firebase-ui
+              (signInSuccessWithAuthResult)="successCallback($event)"
+              (signInFailure)="errorCallback($event)">
+            </firebase-ui>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 mt-3" *ngIf="user">
+        <blockquote class="blockquote text-center animated fadeInUp delay-2s">
+          <p class="mb-0">You are now Logged In.</p>
+          <footer class="blockquote-footer animated fadeInUp delay-3s">
+            <i class="fa fa-user-o" aria-hidden="true"></i> {{user.displayName}} | <cite title="Source Title">{{user.email}}</cite>
+          </footer>
+        </blockquote>
+        <div class="text-center">
+          <button class="btn btn-danger" (click)="logout()">Logout</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
