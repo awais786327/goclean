@@ -1,37 +1,39 @@
-<div class="app-component-wrapper">
-  <nav class="navbar navbar-expand-lg navbar-light shadow fixed-top bg-white">
-    <div class="container">
-      <a class="navbar-brand mb-1" routerLink="/">
-        Goclean <i class="fa fa-map-marker animated fadeInDownBig delay-1s" aria-hidden="true"></i>
-      </a>
-      <button class="w-25 right-menu-btn navbar-toggler p-0 outline-0 focus-0 ripple" type="button" data-toggle="collapse" data-target="#navbarResponsive"
-              aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarResponsive">
-        <ul class="navbar-nav ml-auto text-center">
-          <li class="nav-item active" *ngIf="!user; else userMenu">
-            <a class="nav-link ripple animated bounceIn" routerLink="/auth/login">Login</a>
-          </li>
-          <ng-template #userMenu>
-            <li class="nav-item active">
-              <a class="nav-link ripple" routerLink="/maps/home">Map</a>
+<section>
+  <div class="app-component-wrapper">
+    <nav class="navbar navbar-expand-lg navbar-light shadow fixed-top bg-white">
+      <div class="container">
+        <a class="navbar-brand mb-1" routerLink="/">
+          Goclean <i class="fa fa-map-marker animated fadeInDownBig delay-1s" aria-hidden="true"></i>
+        </a>
+        <button class="w-25 right-menu-btn navbar-toggler p-0 outline-0 focus-0 ripple" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto text-center">
+            <li class="nav-item active" *ngIf="!user; else userMenu">
+              <a class="nav-link ripple animated bounceIn" routerLink="/auth/login">Login</a>
             </li>
-            <li class="nav-item active cursor" (click)="logout()">
-              <a class="nav-link ripple">Logout</a>
-            </li>
-            <!--<li class="nav-item hvr-pop cursor">
-              <a class="nav-link" (click)="logout()">
-                <i class="fa fa-lg fa-power-off" aria-hidden="true"></i>
-              </a>
-            </li>-->
-          </ng-template>
-        </ul>
+            <ng-template #userMenu>
+              <li class="nav-item active">
+                <a class="nav-link ripple" routerLink="/maps/home">Map</a>
+              </li>
+              <li class="nav-item active cursor" (click)="logout()">
+                <a class="nav-link ripple">Logout</a>
+              </li>
+              <!--<li class="nav-item hvr-pop cursor">
+                <a class="nav-link" (click)="logout()">
+                  <i class="fa fa-lg fa-power-off" aria-hidden="true"></i>
+                </a>
+              </li>-->
+            </ng-template>
+          </ul>
+        </div>
       </div>
-    </div>
-  </nav>
+    </nav>
 
-  <div class="container-fluid">
-    <router-outlet></router-outlet>
+    <div class="container-fluid">
+      <router-outlet></router-outlet>
+    </div>
   </div>
-</div>
+</section>

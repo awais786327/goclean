@@ -1,0 +1,10 @@
+.landing-page-wrapper {
+  .masthead {
+    height: calc(100vh - 60px);
+    min-height: 500px;
+    background-image: url('../../../assets/cover.gif');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+}
