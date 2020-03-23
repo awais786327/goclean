@@ -2,7 +2,7 @@
 
 Highlighting major Earth problems by using Google Maps ( "v") 🔥
 
-Created this open source project so everyone can contribute together and present this surprized map to the Government
+Created this open source project so everyone can contribute together and present this surprised map to the Government
 
 ## Getting Started
 
