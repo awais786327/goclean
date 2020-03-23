@@ -1,6 +1,6 @@
 # :rocket: Goclean
 
-Created this open source project for highlighting major Earth problems by using Google Maps so everyone can contribute together and present this surprised map to the Government
+Created this open source project for highlighting major Earth problems by using Google Maps so everyone can contribute together and present this surprised map to the Government/Agency/Private Sector/Company for goods
 
 ## Getting Started
 
