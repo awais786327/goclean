@@ -23,14 +23,15 @@ export class AppComponent implements AfterViewInit {
       this.user = user;
     });
 
-    let asyncLoadCount = false;
+    let asyncLoadCount = 0;
     router.events.subscribe(async event => {
       if (await event instanceof NavigationStart) {
         console.log('event ', event);
-        asyncLoadCount = true;
-      } else if (await event instanceof NavigationEnd) {
+        asyncLoadCount++;
+      }
+      if (await event instanceof NavigationEnd) {
         console.log('event ', event);
-        asyncLoadCount = false;
+        asyncLoadCount--;
       }
       !!asyncLoadCount ? this.isLoading(true) : this.isLoading(false);
     });
