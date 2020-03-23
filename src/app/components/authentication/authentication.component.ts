@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, AfterViewInit, OnInit} from '@angular/core';
 import {FirebaseUISignInSuccessWithAuthResult, FirebaseUISignInFailure} from 'firebaseui-angular';
 import {Router} from '@angular/router';
 import {UserService} from '../../services/user.service';
@@ -14,15 +14,27 @@ import {AngularFireAuth} from 'angularfire2/auth';
   styleUrls: ['./authentication.component.scss']
 })
 
-export class AuthenticationComponent implements OnInit {
+export class AuthenticationComponent implements AfterViewInit, OnInit {
   user: any;
 
   constructor(private angularFireAuth: AngularFireAuth, private router: Router, private userService: UserService) {
     this.getUser();
   }
 
-  ngOnInit(): void {
+  ngOnInit() {
+    this.isLoading(true);
     this.angularFireAuth.authState.subscribe(this.firebaseAuthChangeListener);
+  }
+
+  ngAfterViewInit() {
+    setTimeout(() => {
+      this.isLoading(false);
+    }, 3000);
+  }
+
+  isLoading(bool?) {
+    console.log('loading in auth ', bool);
+    document.getElementById('app-loader').style.display = bool ? 'block' : 'none';
   }
 
   getUser() {

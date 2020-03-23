@@ -1,5 +1,5 @@
-import {Component, AfterViewInit} from '@angular/core';
-import {Router, NavigationStart, NavigationEnd, RouteConfigLoadEnd, RouteConfigLoadStart} from '@angular/router';
+import {Component, AfterViewInit, OnInit} from '@angular/core';
+import {Router} from '@angular/router';
 
 import {UserService} from './services/user.service';
 
@@ -14,7 +14,7 @@ import {AngularFireAuth} from 'angularfire2/auth';
   styleUrls: ['./app.component.scss']
 })
 
-export class AppComponent implements AfterViewInit {
+export class AppComponent implements AfterViewInit, OnInit {
   user: any;
 
   constructor(private angularFireAuth: AngularFireAuth, private router: Router, private userService: UserService) {
@@ -22,28 +22,20 @@ export class AppComponent implements AfterViewInit {
     this.userService.userStatus.subscribe(user => {
       this.user = user;
     });
+  }
 
-    let asyncLoadCount = 0;
-    router.events.subscribe(async event => {
-      if (await event instanceof RouteConfigLoadStart ) {
-        console.log('RouteConfigLoadStart event ', event);
-        asyncLoadCount++;
-      }
-      if (await event instanceof RouteConfigLoadEnd) {
-        console.log('RouteConfigLoadEnd event ', event);
-        asyncLoadCount--;
-      }
-      !!asyncLoadCount ? this.isLoading(true) : this.isLoading(false);
-    });
+  ngOnInit() {
+    this.isLoading(true);
   }
 
   ngAfterViewInit() {
-    // stop loading for first time as it is shown by default
-    this.isLoading(false);
+    setTimeout(() => {
+      this.isLoading(false);
+    }, 3000);
   }
 
   isLoading(bool?) {
-    console.log('loading ', bool);
+    console.log('loading in root ', bool);
     document.getElementById('app-loader').style.display = bool ? 'block' : 'none';
   }
 

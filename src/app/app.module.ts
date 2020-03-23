@@ -74,14 +74,14 @@ const firebaseUiAuthConfig: firebaseui.auth.Config = {
     AuthenticationComponent
   ],
   imports: [
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
     NgxLoadingModule.forRoot({
       fullScreenBackdrop: true,
       animationType: ngxLoadingAnimationTypes[animationType[2]],
       backdropBackgroundColour: '#000000ba'
     }),
+    BrowserModule,
+    AppRoutingModule,
+    BrowserAnimationsModule,
     ToastrModule.forRoot({
       progressBar: true,
       iconClasses: {
