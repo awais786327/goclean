@@ -25,6 +25,8 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   issueLineColorConfig: any;
   charityLineColorConfig: any;
   selectedLineIdForDelete: any;
+  userMarker: any;
+  userInfoWindow: any;
 
   @ViewChild('description', {static: false}) description: ElementRef;
 
@@ -296,7 +298,7 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   addMarker(latlng, info, isOpen?) {
-    const marker = new google.maps.Marker({
+    this.userMarker = new google.maps.Marker({
       title: info,
       position: latlng,
       map: this.map
@@ -311,16 +313,16 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
       </div>
     `;
 
-    const infoWindow = new google.maps.InfoWindow({
+    this.userInfoWindow = new google.maps.InfoWindow({
       content: infoWindowContent
     });
 
-    marker.addListener('click', () => {
-      infoWindow.open(marker.get('map'), marker);
+    this.userMarker.addListener('click', () => {
+      this.userInfoWindow.open(this.userMarker.get('map'), this.userMarker);
     });
 
     if (isOpen) {
-      infoWindow.open(marker.get('map'), marker);
+      this.userInfoWindow.open(this.userMarker.get('map'), this.userMarker);
     }
   }
 
@@ -356,6 +358,7 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
 
   reCenter() {
     this.map.panTo(this.latlng);
+    this.userInfoWindow.open(this.userMarker.get('map'), this.userMarker);
   }
 
   initMap() {
