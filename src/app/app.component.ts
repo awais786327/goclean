@@ -26,11 +26,11 @@ export class AppComponent implements AfterViewInit {
     let asyncLoadCount = 0;
     router.events.subscribe(async event => {
       if (await event instanceof RouteConfigLoadStart ) {
-        console.log('event ', event);
+        console.log('RouteConfigLoadStart event ', event);
         asyncLoadCount++;
       }
       if (await event instanceof RouteConfigLoadEnd) {
-        console.log('event ', event);
+        console.log('RouteConfigLoadEnd event ', event);
         asyncLoadCount--;
       }
       !!asyncLoadCount ? this.isLoading(true) : this.isLoading(false);
