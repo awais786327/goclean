@@ -2,7 +2,7 @@
   <div class="row" id="map"></div>
   <div [hidden]="!isDrawing.status" (click)="addDescription()">
     <div class="adminActions animated bounceIn" data-toggle="popover" data-trigger="hover">
-      <a [ngClass]="{'bg-red': isDrawing.type == 'road', 'bg-blue': isDrawing.type == 'water'}"
+      <a [ngClass]="{'bg-red': isDrawing.type == 'issue', 'bg-blue': isDrawing.type == 'charity'}"
          [class.disabled]="!isDrawing.started" href="javascript:" class="adminButton hvr-buzz-out">
         <i [ngClass]="{'fa-question': !isDrawing.started, 'fa-thumbs-up': isDrawing.started}" class="fa white medium-size"></i>
       </a>
@@ -15,10 +15,10 @@
         <i class="fa fa-map-signs"></i>
       </a>
       <div class="adminButtons" (click)="closeFABMenu(fab)">
-        <a (click)="draw('water')" class="hvr-glow bg-blue" href="javascript:" data-toggle="tooltip" title="Mark Water">
-          <i class="fa fa-tint fa-lg"></i>
+        <a (click)="draw('charity')" class="hvr-glow bg-blue" href="javascript:" data-toggle="tooltip" title="Make Charity">
+          <i class="fa fa-heart fa-lg"></i>
         </a>
-        <a (click)="draw('road')" class="hvr-glow bg-red" href="javascript:" data-toggle="tooltip" title="Mark Road">
+        <a (click)="draw('issue')" class="hvr-glow bg-red" href="javascript:" data-toggle="tooltip" title="Mark Issue">
           <i class="fa fa-road"></i>
         </a>
         <a (click)="reCenter()" class="hvr-glow grey" href="javascript:" data-toggle="tooltip" title="Re-center">
@@ -48,7 +48,7 @@
         <div class="modal-body pb-1">
           <div class="form-group mb-2">
             <label for="textarea">Description</label>
-            <textarea class="form-control" placeholder="Write some details regarding this route."
+            <textarea class="form-control" placeholder="Write something about this"
                       #description id="textarea" rows="3"></textarea>
           </div>
         </div>

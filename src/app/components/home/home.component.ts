@@ -22,8 +22,8 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   mapConfig: any;
   isDrawing: any;
   cursor: any;
-  roadLineColorConfig: any;
-  waterLineColorConfig: any;
+  issueLineColorConfig: any;
+  charityLineColorConfig: any;
   selectedLineIdForDelete: any;
 
   @ViewChild('description', {static: false}) description: ElementRef;
@@ -92,11 +92,11 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   ngOnInit() {
-    this.roadLineColorConfig = {
+    this.issueLineColorConfig = {
       lineColor: '#ff4136',
       edgeColor: '#f00000',
     };
-    this.waterLineColorConfig = {
+    this.charityLineColorConfig = {
       lineColor: '#0074d9',
       edgeColor: '#0000ff',
     };
@@ -222,10 +222,10 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
       arr[i].dateTime = dateTime;
       arr[i].description = description ? description : null;
       arr[i].type = this.isDrawing.type;
-      if (arr[i].type === 'road') {
-        arr[i].colorConfig = this.roadLineColorConfig;
+      if (arr[i].type === 'issue') {
+        arr[i].colorConfig = this.issueLineColorConfig;
       } else {
-        arr[i].colorConfig = this.waterLineColorConfig;
+        arr[i].colorConfig = this.charityLineColorConfig;
       }
     }
     this.toastr.info('Saving..', '', {timeOut: 3000}).onHidden
@@ -254,12 +254,12 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
     this.isDrawing.status = true;
     this.isDrawing.type = type;
     switch (type) {
-      case 'road': {
-        this.initPolyline(this.roadLineColorConfig);
+      case 'issue': {
+        this.initPolyline(this.issueLineColorConfig);
         break;
       }
-      case 'water': {
-        this.initPolyline(this.waterLineColorConfig);
+      case 'charity': {
+        this.initPolyline(this.charityLineColorConfig);
         break;
       }
     }
