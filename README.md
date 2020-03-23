@@ -24,3 +24,6 @@ Special thanks to [Taimoor Saeed](https://www.linkedin.com/in/taimoorsaeed/) for
 
 ## LICENSE
 [Licensed under the MIT License](./LICENSE)
+
+## Support
+If you really like it, buy me a [Coffee](https://ko-fi.com/awais786327)
