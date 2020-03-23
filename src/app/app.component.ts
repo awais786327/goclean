@@ -40,6 +40,7 @@ export class AppComponent implements AfterViewInit {
   }
 
   isLoading(bool?) {
+    console.log('loading ', bool);
     document.getElementById('app-loader').style.display = bool ? 'block' : 'none';
   }
 
