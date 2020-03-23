@@ -1,5 +1,5 @@
 import {Component, AfterViewInit} from '@angular/core';
-import {Router, RouteConfigLoadEnd, RouteConfigLoadStart} from '@angular/router';
+import {Router, NavigationStart, NavigationEnd} from '@angular/router';
 import {UserService} from './services/user.service';
 
 /*
@@ -24,9 +24,9 @@ export class AppComponent implements AfterViewInit {
 
     let asyncLoadCount = 0;
     router.events.subscribe(event => {
-        if (event instanceof RouteConfigLoadStart) {
+        if (event instanceof NavigationStart) {
           asyncLoadCount++;
-        } else if (event instanceof RouteConfigLoadEnd) {
+        } else if (event instanceof NavigationEnd) {
           asyncLoadCount--;
         }
         !!asyncLoadCount ? this.isLoading(true) : this.isLoading(false);
