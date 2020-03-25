@@ -16,8 +16,10 @@ import {AngularFireAuth} from 'angularfire2/auth';
 
 export class AuthenticationComponent implements AfterViewInit, OnInit {
   user: any;
+  reset: any;
 
   constructor(private angularFireAuth: AngularFireAuth, private router: Router, private userService: UserService) {
+    this.reset = false;
     this.getUser();
   }
 
@@ -35,6 +37,20 @@ export class AuthenticationComponent implements AfterViewInit, OnInit {
   isLoading(bool?) {
     console.log('loading in auth ', bool);
     document.getElementById('app-loader').style.display = bool ? 'block' : 'none';
+  }
+
+  resetEverything() {
+    localStorage.clear();
+    sessionStorage.clear();
+    const indexedDBRef = window.indexedDB;
+    indexedDBRef.databases()
+      .then(dbsArray => dbsArray.map(db => indexedDBRef.deleteDatabase(db.name)))
+      .then(() => {
+        this.reset = true;
+        setTimeout(() => {
+          this.reset = false;
+        }, 3000);
+      });
   }
 
   getUser() {
