@@ -24,11 +24,11 @@
               (signInSuccessWithAuthResult)="successCallback($event)"
               (signInFailure)="errorCallback($event)">
             </firebase-ui>
-            <small class="form-text text-muted text-center animated fadeIn" *ngIf="!reset">
-              having problem? <span class="text-primary cursor" (click)="resetEverything()">reset it here</span>
+            <small class="form-text text-muted small text-center animated fadeIn" *ngIf="!reset">
+              having problem? <span class="text-primary cursor" (click)="resetEverything()">reset it here.</span>
             </small>
-            <small class="form-text text-muted text-center animated fadeIn" *ngIf="reset">
-              you can now login
+            <small class="form-text text-muted small text-center animated fadeIn" *ngIf="reset">
+              You can now login.
             </small>
           </div>
         </div>
