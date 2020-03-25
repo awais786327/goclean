@@ -2,7 +2,7 @@
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/98285c9d-fab8-44e5-b695-ea88ece4f959/deploy-status)](https://app.netlify.com/sites/goclean/deploys)
 
-Created this open source project for highlighting major Earth problems by using Google Maps so everyone can contribute together and present this surprised map to the Government/Agency/Private Sector/Company for goods
+Created this open source project for highlighting and solving major Earth problems by using Google Maps
 
 ## Getting Started
 
