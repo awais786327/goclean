@@ -15,8 +15,11 @@
         <i class="fa fa-map-signs"></i>
       </a>
       <div class="adminButtons" (click)="closeFABMenu(fab)">
+        <a (click)="draw('helpNeeded')" class="hvr-glow bg-navy" href="javascript:" data-toggle="tooltip" title="Help Needed">
+          <i class="fa fa-hand-paper-o"></i>
+        </a>
         <a (click)="draw('charity')" class="hvr-glow bg-blue" href="javascript:" data-toggle="tooltip" title="Make Charity">
-          <i class="fa fa-heart fa-lg"></i>
+          <i class="fa fa-heart"></i>
         </a>
         <a (click)="draw('issue')" class="hvr-glow bg-red" href="javascript:" data-toggle="tooltip" title="Mark Issue">
           <i class="fa fa-road"></i>

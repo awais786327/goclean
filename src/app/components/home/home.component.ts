@@ -261,7 +261,11 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
         break;
       }
       case 'charity': {
-        this.initPolyline(this.charityLineColorConfig);
+
+        break;
+      }
+      case 'helpNeeded': {
+
         break;
       }
     }
