@@ -22,7 +22,8 @@ All set 🕹 Your production build is now ready! :rocket:
 
 ## Google Map Api Key
 
-Special thanks to [Taimoor Saeed](https://www.linkedin.com/in/taimoorsaeed/) for Google Map API Key 🌍
+Special thanks to [Taimoor Saeed](https://www.linkedin.com/in/taimoorsaeed/) for Google Map API Key 
+AIzaSyBpX1dy9H1auDFsa6nO0T7IzwEPO9q6m2A
 
 ## LICENSE
 [Licensed under the MIT License](./LICENSE)
